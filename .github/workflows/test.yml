@@ -35,16 +35,16 @@ jobs:
             echo "export WM_MPLIB=SYSTEMOPENMPI" >> testbash
             echo "export WM_PROJECT=OpenFOAM" >> testbash
             echo "unset FOAM_EXTRA_CFLAGS FOAM_EXTRA_CXXFLAGS FOAM_EXTRA_LDFLAGS" >> testbash
-            echo "foamOldDirs=\"$WM_PROJECT_DIR $WM_THIRD_PARTY_DIR $HOME/$WM_PROJECT/$USER $FOAM_USER_APPBIN $FOAM_USER_LIBBIN $WM_PROJECT_SITE $FOAM_SITE_APPBIN $FOAM_SITE_LIBBIN $FOAM_MODULE_APPBIN $FOAM_MODULE_LIBBIN\"" >> testbash
+            echo "foamOldDirs=\"\$WM_PROJECT_DIR \$WM_THIRD_PARTY_DIR \$HOME/\$WM_PROJECT/\$USER \$FOAM_USER_APPBIN \$FOAM_USER_LIBBIN \$WM_PROJECT_SITE \$FOAM_SITE_APPBIN \$FOAM_SITE_LIBBIN \$FOAM_MODULE_APPBIN \$FOAM_MODULE_LIBBIN\"" >> testbash
             echo "export WM_PROJECT_DIR=\"/usr/lib/openfoam/openfoam2106\"" >> testbash
-            echo "export WM_PROJECT_USER_DIR=\"$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION\"" >> testbash
+            echo "export WM_PROJECT_USER_DIR=\"\$HOME/\$WM_PROJECT/\$USER-\$WM_PROJECT_VERSION\"" >> testbash
             echo "unset foamOldDirs projectDir" >> testbash
-            echo "if [ -d \"$WM_PROJECT_DIR\" ]" >> testbash
+            echo "if [ -d \"\$WM_PROJECT_DIR\" ]" >> testbash
             echo "then" >> testbash
             echo "  echo \"I'm in the if!\"" >> testbash
             echo "else" >> testbash
-            echo "  echo \"Error: did not locate installation path for $WM_PROJECT-$WM_PROJECT_VERSION\" 1>&2" >> testbash
-            echo "  echo \"No directory: $WM_PROJECT_DIR\" 1>&2" >> testbash
+            echo "  echo \"Error: did not locate installation path for \$WM_PROJECT-\$WM_PROJECT_VERSION\" 1>&2" >> testbash
+            echo "  echo \"No directory: \$WM_PROJECT_DIR\" 1>&2" >> testbash
             echo "fi" >> testbash
             echo "unset foamOldDirs projectDir" >> testbash
             cat testbash
