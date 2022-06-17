@@ -47,7 +47,10 @@ jobs:
             echo "  then" >> testbash
             echo "      echo \"echo \"\$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2\"" >> testbash
             echo "      echo \"source \$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2" >> testbash
-            echo "      fi" >> testbash
+            echo "  fi" >> testbash
+            echo "  echo \"\"\$@\"\"" >> testbash
+            echo "  echo \"wm_project_dir is \$WM_PROJECT_DIR\"" >> testbash
+            echo "  . \"\$WM_PROJECT_DIR/etc/config.sh/setup\" \"\$@\"" >> testbash
             echo "else" >> testbash
             echo "  echo \"Error: did not locate installation path for \$WM_PROJECT-\$WM_PROJECT_VERSION\" 1>&2" >> testbash
             echo "  echo \"No directory: \$WM_PROJECT_DIR\" 1>&2" >> testbash
