@@ -21,7 +21,8 @@ jobs:
             sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/bashrc
             sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
             ls -l /usr/lib/openfoam/openfoam2106/etc/
-            # source /usr/lib/openfoam/openfoam2106/etc/bashrc
+            chmod -R ugo+rwx /usr/lib/openfoam
+            source /usr/lib/openfoam/openfoam2106/etc/bashrc
             #sudo echo "echo \"well hello there\"" >> /usr/lib/openfoam/openfoam2106/etc/bashrc
             
             echo "echo \"running testbash\"" >> testbash
