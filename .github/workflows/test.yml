@@ -39,6 +39,14 @@ jobs:
             echo "export WM_PROJECT_DIR=\"/usr/lib/openfoam/openfoam2106\"" >> testbash
             echo "export WM_PROJECT_USER_DIR=\"$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION\"" >> testbash
             echo "unset foamOldDirs projectDir" >> testbash
+            echo "if [ -d \"$WM_PROJECT_DIR\" ]" >> testbash
+            echo "then" >> testbash
+            echo "  echo \"I'm in the if!\"" >> testbash
+            echo "else" >> testbash
+            echo "  echo \"Error: did not locate installation path for $WM_PROJECT-$WM_PROJECT_VERSION\" 1>&2" >> testbash
+            echo "  echo \"No directory: $WM_PROJECT_DIR\" 1>&2" >> testbash
+            echo "fi" >> testbash
+            echo "unset foamOldDirs projectDir" >> testbash
            
             chmod +x testbash
             . ./testbash
