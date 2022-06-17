@@ -23,4 +23,6 @@ jobs:
             
       - name: step 2
         ## Reference your environment variables
-        run: echo "The API key is:${{env.API_KEY}}"   
+        run: |
+            echo "The API key is:${{env.API_KEY}}"   
+            echo "FOAM_SRC is $FOAM_SRC"
