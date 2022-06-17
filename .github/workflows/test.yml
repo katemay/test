@@ -18,8 +18,9 @@ jobs:
             echo "hello world"
             curl -s https://dl.openfoam.com/add-debian-repo.sh | sudo bash
             sudo apt-get install openfoam2106-default
-            # sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/bashrc
-            # sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
+            sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/bashrc
+            sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
+            sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/config.sh/functions
             # ls -l /usr/lib/openfoam/openfoam2106/etc/
             # sudo chmod -R ugo+rwx /usr/lib/openfoam
             # source /usr/lib/openfoam/openfoam2106/etc/bashrc
@@ -43,11 +44,8 @@ jobs:
             echo "if [ -d \"\$WM_PROJECT_DIR\" ]" >> testbash
             echo "then" >> testbash
             echo "  echo \"I'm in the if!\"" >> testbash
-            echo "  if [ -n \"\$FOAM_VERBOSE\" ] && [ -n \"\$PS1\" ]" >> testbash
-            echo "  then" >> testbash
-            echo "      echo \"echo \"\$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2\"" >> testbash
-            echo "      echo \"source \$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2" >> testbash
-            echo "  fi" >> testbash
+            echo "  echo \"echo \"\$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2\"" >> testbash
+            echo "  echo \"source \$WM_PROJECT_DIR/etc/config.sh/setup\" 1>&2" >> testbash
             echo "  echo \"\"\$@\"\"" >> testbash
             echo "  echo \"wm_project_dir is \$WM_PROJECT_DIR\"" >> testbash
             echo "  . \"\$WM_PROJECT_DIR/etc/config.sh/setup\" \"\$@\"" >> testbash
@@ -57,6 +55,11 @@ jobs:
             echo "fi" >> testbash
             echo "unset foamOldDirs projectDir" >> testbash
             cat testbash
+            
+            echo "call functions"
+            . /usr/lib/openfoam/openfoam2106/etc/config.sh/functions
+            echo "call setup"
+            . /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
            
             chmod +x testbash
             . ./testbash
