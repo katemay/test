@@ -28,6 +28,7 @@ jobs:
             echo "TEST is $TEST"
             echo "FOAM_SRC is $FOAM_SRC"
             echo "FOAM_LIBBIN is $FOAM_LIBBIN"
+            echo "WM_PROJECT_DIR is $WM_PROJECT_DIR"
             
       - name: step 2
         ## Reference your environment variables
@@ -35,3 +36,4 @@ jobs:
             echo "The API key is:${{env.API_KEY}}"   
             echo "FOAM_SRC is $FOAM_SRC"
             echo "FOAM_LIBBIN is $FOAM_LIBBIN"
+            echo "WM_PROJECT_DIR is $WM_PROJECT_DIR"
