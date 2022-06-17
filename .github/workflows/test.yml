@@ -20,7 +20,8 @@ jobs:
             sudo apt-get install openfoam2106-default
             sudo chmod ugo+x /usr/lib/openfoam/openfoam2106/etc/bashrc
             ls /usr/lib/openfoam/openfoam2106/etc/
-            sudo -s source /usr/lib/openfoam/openfoam2106/etc/bashrc
+            echo "echo \"well hello there\"" >> /usr/lib/openfoam/openfoam2106/etc/bashrc
+            source /usr/lib/openfoam/openfoam2106/etc/bashrc
             
             echo "export TEST=/usr/lib/foam" >> testbash
             chmod +x testbash
