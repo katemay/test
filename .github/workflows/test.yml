@@ -21,13 +21,21 @@ jobs:
             sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/bashrc
             sudo chmod ugo+rwx /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
             ls -l /usr/lib/openfoam/openfoam2106/etc/
+            # source /usr/lib/openfoam/openfoam2106/etc/bashrc
+            #sudo echo "echo \"well hello there\"" >> /usr/lib/openfoam/openfoam2106/etc/bashrc
+            
             echo "echo \"running testbash\"" >> testbash
             echo "export TEST=/usr/lib/foam" >> testbash
-            #echo "source /usr/lib/openfoam/openfoam2106/etc/bashrc" >> testbash
+            echo "export WM_PROJECT_VERSION=v2106" >> testbash
+            echo "export WM_COMPILER_TYPE=system" >> testbash
+            echo "export WM_COMPILER=Gcc" >> testbash
+            echo "export WM_PRECISION_OPTION=DP" >> testbash
+            echo "export WM_LABEL_SIZE=32" >> testbash
+            echo "export WM_COMPILE_OPTION=Opt" >> testbash
+            echo "export WM_MPLIB=SYSTEMOPENMPI" >> testbash
+            echo "export WM_PROJECT=OpenFOAM" >> testbash
+            echo "unset FOAM_EXTRA_CFLAGS FOAM_EXTRA_CXXFLAGS FOAM_EXTRA_LDFLAGS" >> testbash
             
-            
-            #sudo echo "echo \"well hello there\"" >> /usr/lib/openfoam/openfoam2106/etc/bashrc
-            source /usr/lib/openfoam/openfoam2106/etc/bashrc
            
             chmod +x testbash
             . ./testbash
