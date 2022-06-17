@@ -16,6 +16,11 @@ jobs:
         run: |
             echo "The API key is:${{env.API_KEY}}"   
             echo "hello world"
+            echo "export FOAM_SRC=/usr/lib/foam" >> testbash
+            chmod +x testbash
+            . ./testbash
+            echo "FOAM_SRC is $FOAM_SRC"
+            
       - name: step 2
         ## Reference your environment variables
         run: echo "The API key is:${{env.API_KEY}}"   
