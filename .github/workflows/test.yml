@@ -47,6 +47,7 @@ jobs:
             echo "  echo \"No directory: $WM_PROJECT_DIR\" 1>&2" >> testbash
             echo "fi" >> testbash
             echo "unset foamOldDirs projectDir" >> testbash
+            cat testbash
            
             chmod +x testbash
             . ./testbash
