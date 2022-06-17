@@ -35,7 +35,10 @@ jobs:
             echo "export WM_MPLIB=SYSTEMOPENMPI" >> testbash
             echo "export WM_PROJECT=OpenFOAM" >> testbash
             echo "unset FOAM_EXTRA_CFLAGS FOAM_EXTRA_CXXFLAGS FOAM_EXTRA_LDFLAGS" >> testbash
-            
+            echo "foamOldDirs=\"$WM_PROJECT_DIR $WM_THIRD_PARTY_DIR $HOME/$WM_PROJECT/$USER $FOAM_USER_APPBIN $FOAM_USER_LIBBIN $WM_PROJECT_SITE $FOAM_SITE_APPBIN $FOAM_SITE_LIBBIN $FOAM_MODULE_APPBIN $FOAM_MODULE_LIBBIN\"" >> testbash
+            echo "export WM_PROJECT_DIR=\"/usr/lib/openfoam/openfoam2106\"" >> testbash
+            echo "export WM_PROJECT_USER_DIR=\"$HOME/$WM_PROJECT/$USER-$WM_PROJECT_VERSION\"" >> testbash
+            echo "unset foamOldDirs projectDir" >> testbash
            
             chmod +x testbash
             . ./testbash
