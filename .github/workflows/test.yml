@@ -13,8 +13,9 @@ jobs:
           ## Environment variable for step 1
           API_KEY: XXXXXXXXXXXX    
         ## Reference your environment variables
-        run: echo "The API key is:${{env.API_KEY}}"   
-        echo "hello world"
+        run: |
+            echo "The API key is:${{env.API_KEY}}"   
+            echo "hello world"
       - name: step 2
         ## Reference your environment variables
         run: echo "The API key is:${{env.API_KEY}}"   
