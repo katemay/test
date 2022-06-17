@@ -56,13 +56,17 @@ jobs:
             echo "unset foamOldDirs projectDir" >> testbash
             cat testbash
             
+            pwd
+            
             chmod +x testbash
             . ./testbash
+            chmod +x ofsetupfile
+            . ofsetupfile
             
-            echo "call functions"
-            . /usr/lib/openfoam/openfoam2106/etc/config.sh/functions
-            echo "call setup"
-            . /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
+            #echo "call functions"
+            #. /usr/lib/openfoam/openfoam2106/etc/config.sh/functions
+            #echo "call setup"
+            #. /usr/lib/openfoam/openfoam2106/etc/config.sh/setup
            
             
             echo "TEST is $TEST"
